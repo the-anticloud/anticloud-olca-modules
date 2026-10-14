@@ -1,0 +1,10 @@
+{
+  "project": "OLCA_MODULES",
+  "category": "CARBON_CAPTURE",
+  "path": "E:\\fenta\\Downloads\\The Anticloud\\ANTICLOUD_REPOS\\CARBON_CAPTURE\\OLCA_MODULES",
+  "status": "failed",
+  "reason": "unreadable BENCH.json: 'metrics'",
+  "files_count": null,
+  "lines_of_code": null,
+  "sha": null
+}
