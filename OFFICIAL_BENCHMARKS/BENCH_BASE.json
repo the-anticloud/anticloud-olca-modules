@@ -1,0 +1,761 @@
+{
+  "schema": "anticloud.tier-bench/1",
+  "project": "OLCA_MODULES",
+  "source": {
+    "repo_path": "E:\\fenta\\Downloads\\The Anticloud\\ANTICLOUD_REPOS\\CARBON_CAPTURE\\OLCA_MODULES\\UPSTREAM_CLONE",
+    "git": {
+      "head": "0ee0cd45a0a344d8d478e74582a2d77a729db064",
+      "url": "https://github.com/openLCA/olca-modules",
+      "branch": "master",
+      "committed_at": "2017-09-04T19:14:16+03:00"
+    }
+  },
+  "metrics": {
+    "files_total": 1322,
+    "source_files_scanned": 1180,
+    "lines_of_code": 103404,
+    "languages": {
+      ".java": 1169,
+      ".xsd": 65,
+      ".html": 23,
+      ".xml": 15,
+      ".csv": 10,
+      ".md": 9,
+      ".py": 5,
+      "(none)": 4,
+      ".txt": 3,
+      ".cpp": 3,
+      ".h": 3,
+      ".sql": 3,
+      ".dll": 2,
+      ".yml": 1,
+      ".bat": 1
+    }
+  },
+  "licence": {
+    "spdx": "AGPL-3.0",
+    "class": "B",
+    "source_file": "LICENSE.txt",
+    "redistribution_allowed": false
+  },
+  "dependencies": {
+    "count": 0,
+    "unique": 0,
+    "by_ecosystem": {},
+    "list": []
+  },
+  "owasp_top10": {
+    "total_findings": 301,
+    "files_with_findings": 294,
+    "severity": {
+      "high": 51,
+      "medium": 2,
+      "low": 248
+    },
+    "categories": {
+      "A01-BrokenAccessControl": {
+        "count": 0,
+        "findings": []
+      },
+      "A02-CryptographicFailures": {
+        "count": 1,
+        "findings": [
+          {
+            "severity": "medium",
+            "file": "olca-cloud/src/main/java/org/openlca/cloud/model/data/Dataset.java",
+            "line": 27,
+            "cwe": "CWE-327",
+            "snippet": "byte[] digest = MessageDigest.getInstance(\"MD5\").digest("
+          }
+        ]
+      },
+      "A03-Injection": {
+        "count": 52,
+        "findings": [
+          {
+            "severity": "high",
+            "file": "olca-core/src/main/java/org/openlca/core/database/DQSystemDao.java",
+            "line": 30,
+            "cwe": "CWE-89",
+            "snippet": "String query = \"SELECT DISTINCT \" + field + \" FROM tbl_processes \";"
+          },
+          {
+            "severity": "high",
+            "file": "olca-core/src/main/java/org/openlca/core/database/RootEntityDao.java",
+            "line": 73,
+            "cwe": "CWE-89",
+            "snippet": "return \"select \" + Strings.join(getDescriptorFields(), ',') + \" from \" + getEntityTable();"
+          },
+          {
+            "severity": "high",
+            "file": "olca-core/src/main/java/org/openlca/core/matrix/ExchangeCell.java",
+            "line": 22,
+            "cwe": "CWE-95",
+            "snippet": "void eval(FormulaInterpreter interpreter) {"
+          },
+          {
+            "severity": "high",
+            "file": "olca-core/src/main/java/org/openlca/core/matrix/ExchangeMatrix.java",
+            "line": 81,
+            "cwe": "CWE-95",
+            "snippet": "void eval(FormulaInterpreter interpreter) {"
+          },
+          {
+            "severity": "high",
+            "file": "olca-core/src/main/java/org/openlca/core/matrix/ImpactFactorCell.java",
+            "line": 26,
+            "cwe": "CWE-95",
+            "snippet": "void eval(FormulaInterpreter interpreter) {"
+          },
+          {
+            "severity": "high",
+            "file": "olca-core/src/main/java/org/openlca/core/matrix/ImpactFactorMatrix.java",
+            "line": 60,
+            "cwe": "CWE-95",
+            "snippet": "void eval(final FormulaInterpreter interpreter) {"
+          },
+          {
+            "severity": "high",
+            "file": "olca-core/src/main/java/org/openlca/core/matrix/ImpactTable.java",
+            "line": 62,
+            "cwe": "CWE-95",
+            "snippet": "factorMatrix.eval(interpreter);"
+          },
+          {
+            "severity": "high",
+            "file": "olca-core/src/main/java/org/openlca/core/matrix/Inventory.java",
+            "line": 69,
+            "cwe": "CWE-95",
+            "snippet": "technologyMatrix.eval(interpreter);"
+          },
+          {
+            "severity": "high",
+            "file": "olca-core/src/main/java/org/openlca/core/matrix/ParameterTable.java",
+            "line": 78,
+            "cwe": "CWE-95",
+            "snippet": "cell.eval(interpreter);"
+          },
+          {
+            "severity": "high",
+            "file": "olca-core/src/main/java/org/openlca/core/model/Parameter.java",
+            "line": 59,
+            "cwe": "CWE-95",
+            "snippet": "interpreter.eval(paramaterName);"
+          },
+          {
+            "severity": "high",
+            "file": "olca-formula/src/main/java/org/openlca/expressions/FormulaInterpreter.java",
+            "line": 26,
+            "cwe": "CWE-95",
+            "snippet": "* <code>interpreter.getGlobalScope().eval(expression)</code>."
+          },
+          {
+            "severity": "high",
+            "file": "olca-formula/src/main/java/org/openlca/expressions/Repl.java",
+            "line": 33,
+            "cwe": "CWE-95",
+            "snippet": "eval(expression);"
+          },
+          {
+            "severity": "high",
+            "file": "olca-formula/src/main/java/org/openlca/expressions/Scope.java",
+            "line": 51,
+            "cwe": "CWE-95",
+            "snippet": "public double eval(String expression) throws InterpreterException {"
+          },
+          {
+            "severity": "high",
+            "file": "olca-formula/src/main/java/org/openlca/expressions/functions/Abs.java",
+            "line": 7,
+            "cwe": "CWE-95",
+            "snippet": "protected double eval(double arg) {"
+          },
+          {
+            "severity": "high",
+            "file": "olca-formula/src/main/java/org/openlca/expressions/functions/Acos.java",
+            "line": 7,
+            "cwe": "CWE-95",
+            "snippet": "protected double eval(double arg) {"
+          },
+          {
+            "severity": "high",
+            "file": "olca-formula/src/main/java/org/openlca/expressions/functions/Asin.java",
+            "line": 7,
+            "cwe": "CWE-95",
+            "snippet": "protected double eval(double arg) {"
+          },
+          {
+            "severity": "high",
+            "file": "olca-formula/src/main/java/org/openlca/expressions/functions/Atan.java",
+            "line": 7,
+            "cwe": "CWE-95",
+            "snippet": "protected double eval(double arg) {"
+          },
+          {
+            "severity": "high",
+            "file": "olca-formula/src/main/java/org/openlca/expressions/functions/Avg.java",
+            "line": 12,
+            "cwe": "CWE-95",
+            "snippet": "protected double eval(double[] args) {"
+          },
+          {
+            "severity": "high",
+            "file": "olca-formula/src/main/java/org/openlca/expressions/functions/Ceil.java",
+            "line": 7,
+            "cwe": "CWE-95",
+            "snippet": "protected double eval(double arg) {"
+          },
+          {
+            "severity": "high",
+            "file": "olca-formula/src/main/java/org/openlca/expressions/functions/Cos.java",
+            "line": 7,
+            "cwe": "CWE-95",
+            "snippet": "protected double eval(double arg) {"
+          },
+          {
+            "severity": "high",
+            "file": "olca-formula/src/main/java/org/openlca/expressions/functions/Cosh.java",
+            "line": 7,
+            "cwe": "CWE-95",
+            "snippet": "protected double eval(double arg) {"
+          },
+          {
+            "severity": "high",
+            "file": "olca-formula/src/main/java/org/openlca/expressions/functions/Cotan.java",
+            "line": 7,
+            "cwe": "CWE-95",
+            "snippet": "protected double eval(double arg) {"
+          },
+          {
+            "severity": "high",
+            "file": "olca-formula/src/main/java/org/openlca/expressions/functions/Exp.java",
+            "line": 7,
+            "cwe": "CWE-95",
+            "snippet": "protected double eval(double arg) {"
+          },
+          {
+            "severity": "high",
+            "file": "olca-formula/src/main/java/org/openlca/expressions/functions/Floor.java",
+            "line": 7,
+            "cwe": "CWE-95",
+            "snippet": "protected double eval(double arg) {"
+          },
+          {
+            "severity": "high",
+            "file": "olca-formula/src/main/java/org/openlca/expressions/functions/Frac.java",
+            "line": 7,
+            "cwe": "CWE-95",
+            "snippet": "protected double eval(double arg) {"
+          }
+        ]
+      },
+      "A04-InsecureDesign": {
+        "count": 34,
+        "findings": [
+          {
+            "severity": "low",
+            "file": "olca-cloud/src/main/java/org/openlca/cloud/api/RepositoryConfig.java",
+            "line": 71,
+            "cwe": "CWE-",
+            "snippet": "// TODO encrypt"
+          },
+          {
+            "severity": "low",
+            "file": "olca-core/src/main/cpp/olca_lapack.h",
+            "line": 142,
+            "cwe": "CWE-",
+            "snippet": "* @TODO: add parameter doc"
+          },
+          {
+            "severity": "low",
+            "file": "olca-core/src/main/java/org/openlca/core/database/derby/DerbyDatabase.java",
+            "line": 154,
+            "cwe": "CWE-",
+            "snippet": "// TODO: single database shutdown throws unexpected"
+          },
+          {
+            "severity": "low",
+            "file": "olca-core/src/main/java/org/openlca/core/math/data_quality/DQData.java",
+            "line": 50,
+            "cwe": "CWE-",
+            "snippet": "processData.put(processId, toDouble(values));"
+          },
+          {
+            "severity": "low",
+            "file": "olca-core/src/main/java/org/openlca/core/matrix/InventoryBuilder.java",
+            "line": 159,
+            "cwe": "CWE-",
+            "snippet": "// TODO: adding up uncertainty information (with formulas!) is not yet"
+          },
+          {
+            "severity": "low",
+            "file": "olca-core/src/main/java/org/openlca/core/matrix/matlib/MatlibExport.java",
+            "line": 40,
+            "cwe": "CWE-",
+            "snippet": "* TODO: unit conversion; allocation factors"
+          },
+          {
+            "severity": "low",
+            "file": "olca-core/src/main/java/org/openlca/core/matrix/solvers/SeqAgg.java",
+            "line": 46,
+            "cwe": "CWE-",
+            "snippet": "return; // TODO: log warning: no diagonal entry"
+          },
+          {
+            "severity": "low",
+            "file": "olca-core/src/main/java/org/openlca/core/matrix/solvers/SequentialSolver.java",
+            "line": 65,
+            "cwe": "CWE-",
+            "snippet": "// TODO Auto-generated method stub"
+          },
+          {
+            "severity": "low",
+            "file": "olca-core/src/main/java/org/openlca/eigen/Lapack.java",
+            "line": 69,
+            "cwe": "CWE-",
+            "snippet": "* @TODO: add parameter doc"
+          },
+          {
+            "severity": "low",
+            "file": "olca-ecospold-1/src/main/java/org/openlca/ecospold/internal/impact/ImpactFactors.java",
+            "line": 119,
+            "cwe": "CWE-",
+            "snippet": "// TODO Auto-generated method stub"
+          },
+          {
+            "severity": "low",
+            "file": "olca-ecospold-1/src/main/java/org/openlca/ecospold/internal/impact/ImpactModellingAndValidation.java",
+            "line": 148,
+            "cwe": "CWE-",
+            "snippet": "// TODO Auto-generated method stub"
+          },
+          {
+            "severity": "low",
+            "file": "olca-ecospold-1/src/main/java/org/openlca/ecospold/internal/impact/ImpactProcessInformation.java",
+            "line": 192,
+            "cwe": "CWE-",
+            "snippet": "// TODO Auto-generated method stub"
+          },
+          {
+            "severity": "low",
+            "file": "olca-ecospold-2/src/main/java/spold2/Validation.java",
+            "line": 13,
+            "cwe": "CWE-",
+            "snippet": "// TODO: reviews"
+          },
+          {
+            "severity": "low",
+            "file": "olca-ilcd/src/main/java/org/openlca/ilcd/io/SodaClient.java",
+            "line": 204,
+            "cwe": "CWE-",
+            "snippet": "// TODO Auto-generated method stub"
+          },
+          {
+            "severity": "low",
+            "file": "olca-ilcd/src/main/java/org/openlca/ilcd/util/ProcessBag.java",
+            "line": 241,
+            "cwe": "CWE-",
+            "snippet": "// TODO: check at least one process as reference"
+          },
+          {
+            "severity": "low",
+            "file": "olca-io/archive/ProcessConverter.java",
+            "line": 165,
+            "cwe": "CWE-",
+            "snippet": "// TODO create a category tree"
+          },
+          {
+            "severity": "low",
+            "file": "olca-io/src/main/java/org/openlca/io/ecospold1/output/ProcessConverter.java",
+            "line": 54,
+            "cwe": "CWE-",
+            "snippet": "// TODO: map allocation factors"
+          },
+          {
+            "severity": "low",
+            "file": "olca-io/src/main/java/org/openlca/io/ecospold2/input/MarketProcessCleanUp.java",
+            "line": 162,
+            "cwe": "CWE-",
+            "snippet": "second.uncertainty = null; // TODO: combine values?"
+          },
+          {
+            "severity": "low",
+            "file": "olca-io/src/main/java/org/openlca/io/ecospold2/output/ElemFlowMap.java",
+            "line": 127,
+            "cwe": "CWE-",
+            "snippet": "// TODO: convert uncertainty information"
+          },
+          {
+            "severity": "low",
+            "file": "olca-io/src/main/java/org/openlca/io/ecospold2/output/MasterData.java",
+            "line": 24,
+            "cwe": "CWE-",
+            "snippet": "// TODO: handle parameters"
+          },
+          {
+            "severity": "low",
+            "file": "olca-io/src/main/java/org/openlca/io/ilcd/ILCDImport.java",
+            "line": 179,
+            "cwe": "CWE-",
+            "snippet": "// TODO: we should cache the flow for later but"
+          },
+          {
+            "severity": "low",
+            "file": "olca-io/src/main/java/org/openlca/io/ilcd/input/ExchangeFlow.java",
+            "line": 59,
+            "cwe": "CWE-",
+            "snippet": "return flow; // do not cache mapped flows! -> TODO: but we should!"
+          },
+          {
+            "severity": "low",
+            "file": "olca-io/src/main/java/org/openlca/io/ilcd/input/ProcessExchanges.java",
+            "line": 109,
+            "cwe": "CWE-",
+            "snippet": "// TODO: map default provider"
+          },
+          {
+            "severity": "low",
+            "file": "olca-io/src/main/java/org/openlca/io/ilcd/input/SystemImport.java",
+            "line": 192,
+            "cwe": "CWE-",
+            "snippet": "// TODO: parameter handling"
+          },
+          {
+            "severity": "low",
+            "file": "olca-io/src/main/java/org/openlca/io/ilcd/input/UnitGroupImport.java",
+            "line": 40,
+            "cwe": "CWE-",
+            "snippet": "// TODO: check if reference unit is in database!"
+          }
+        ]
+      },
+      "A05-SecurityMisconfiguration": {
+        "count": 0,
+        "findings": []
+      },
+      "A06-VulnerableComponents": {
+        "count": 0,
+        "findings": []
+      },
+      "A07-AuthFailures": {
+        "count": 0,
+        "findings": []
+      },
+      "A08-SoftwareDataIntegrity": {
+        "count": 214,
+        "findings": [
+          {
+            "severity": "low",
+            "file": "olca-core/src/main/java/org/openlca/core/database/DataProviderException.java",
+            "line": 6,
+            "cwe": "CWE-319",
+            "snippet": "* http://www.openlca.org/uploads/media/MPL-1.1.html"
+          },
+          {
+            "severity": "low",
+            "file": "olca-core/src/main/java/org/openlca/core/database/derby/DerbyDatabase.java",
+            "line": 67,
+            "cwe": "CWE-319",
+            "snippet": "// http://db.apache.org/derby/docs/10.0/manuals/develop/develop13.html"
+          },
+          {
+            "severity": "low",
+            "file": "olca-core/src/main/java/org/openlca/core/database/internal/ScriptHandler.java",
+            "line": 5,
+            "cwe": "CWE-319",
+            "snippet": "* http://www.openlca.org/uploads/media/MPL-1.1.html"
+          },
+          {
+            "severity": "low",
+            "file": "olca-core/src/main/java/org/openlca/core/database/internal/ScriptParser.java",
+            "line": 5,
+            "cwe": "CWE-319",
+            "snippet": "* http://www.openlca.org/uploads/media/MPL-1.1.html"
+          },
+          {
+            "severity": "low",
+            "file": "olca-core/src/main/java/org/openlca/core/database/mysql/ServerApp.java",
+            "line": 5,
+            "cwe": "CWE-319",
+            "snippet": "* http://www.openlca.org/uploads/media/MPL-1.1.html"
+          },
+          {
+            "severity": "low",
+            "file": "olca-core/src/main/java/org/openlca/core/math/NumberGenerator.java",
+            "line": 113,
+            "cwe": "CWE-319",
+            "snippet": "* see http://en.wikipedia.org/wiki/Triangular_distribution"
+          },
+          {
+            "severity": "low",
+            "file": "olca-core/src/main/java/org/openlca/core/matrix/io/MarketFormatWriter.java",
+            "line": 13,
+            "cwe": "CWE-319",
+            "snippet": "* (see http://math.nist.gov/MatrixMarket/formats.html)."
+          },
+          {
+            "severity": "low",
+            "file": "olca-core/src/main/java/org/openlca/util/Geometries.java",
+            "line": 8,
+            "cwe": "CWE-319",
+            "snippet": "private static final String POINT_KML = \"<?xml version=\\\"1.0\\\" encoding=\\\"UTF-8\\\"?><kml xmlns=\\\"http://earth.google.com/kml/2.1\\\"><Folder><Placemark><Point><coordinates>#{longitude"
+          },
+          {
+            "severity": "low",
+            "file": "olca-core/src/main/java/org/openlca/util/OS.java",
+            "line": 7,
+            "cwe": "CWE-319",
+            "snippet": "* property \"os.name\". See http://lopica.sourceforge.net/os.html for a list of"
+          },
+          {
+            "severity": "low",
+            "file": "olca-ecospold-1/src/main/java/org/openlca/ecospold/Category.java",
+            "line": 25,
+            "cwe": "CWE-319",
+            "snippet": "namespace = \"http://www.EcoInvent.org/Categories\")"
+          },
+          {
+            "severity": "low",
+            "file": "olca-ecospold-1/src/main/java/org/openlca/ecospold/CategoryDocument.java",
+            "line": 16,
+            "cwe": "CWE-319",
+            "snippet": "namespace = \"http://www.EcoInvent.org/Categories\")"
+          },
+          {
+            "severity": "low",
+            "file": "olca-ecospold-1/src/main/java/org/openlca/ecospold/internal/impact/ImpactAdministrativeInformation.java",
+            "line": 35,
+            "cwe": "CWE-319",
+            "snippet": "*     &lt;restriction base=\"{http://www.w3.org/2001/XMLSchema}anyType\">"
+          },
+          {
+            "severity": "low",
+            "file": "olca-ecospold-1/src/main/java/org/openlca/ecospold/internal/impact/ImpactAllocation.java",
+            "line": 29,
+            "cwe": "CWE-319",
+            "snippet": "*     &lt;restriction base=\"{http://www.w3.org/2001/XMLSchema}anyType\">"
+          },
+          {
+            "severity": "low",
+            "file": "olca-ecospold-1/src/main/java/org/openlca/ecospold/internal/impact/ImpactCountryCode.java",
+            "line": 17,
+            "cwe": "CWE-319",
+            "snippet": "*   &lt;restriction base=\"{http://www.w3.org/2001/XMLSchema}string\">"
+          },
+          {
+            "severity": "low",
+            "file": "olca-ecospold-1/src/main/java/org/openlca/ecospold/internal/impact/ImpactDataEntryBy.java",
+            "line": 25,
+            "cwe": "CWE-319",
+            "snippet": "*     &lt;restriction base=\"{http://www.w3.org/2001/XMLSchema}anyType\">"
+          },
+          {
+            "severity": "low",
+            "file": "olca-ecospold-1/src/main/java/org/openlca/ecospold/internal/impact/ImpactDataGeneratorAndPublication.java",
+            "line": 28,
+            "cwe": "CWE-319",
+            "snippet": "*     &lt;restriction base=\"{http://www.w3.org/2001/XMLSchema}anyType\">"
+          },
+          {
+            "severity": "low",
+            "file": "olca-ecospold-1/src/main/java/org/openlca/ecospold/internal/impact/ImpactDataSet.java",
+            "line": 35,
+            "cwe": "CWE-319",
+            "snippet": "*     &lt;restriction base=\"{http://www.w3.org/2001/XMLSchema}anyType\">"
+          },
+          {
+            "severity": "low",
+            "file": "olca-ecospold-1/src/main/java/org/openlca/ecospold/internal/impact/ImpactDataSetInformation.java",
+            "line": 31,
+            "cwe": "CWE-319",
+            "snippet": "*     &lt;restriction base=\"{http://www.w3.org/2001/XMLSchema}anyType\">"
+          },
+          {
+            "severity": "low",
+            "file": "olca-ecospold-1/src/main/java/org/openlca/ecospold/internal/impact/ImpactEcoSpold.java",
+            "line": 32,
+            "cwe": "CWE-319",
+            "snippet": "*     &lt;restriction base=\"{http://www.w3.org/2001/XMLSchema}anyType\">"
+          },
+          {
+            "severity": "low",
+            "file": "olca-ecospold-1/src/main/java/org/openlca/ecospold/internal/impact/ImpactFactor.java",
+            "line": 26,
+            "cwe": "CWE-319",
+            "snippet": "*     &lt;restriction base=\"{http://www.w3.org/2001/XMLSchema}anyType\">"
+          },
+          {
+            "severity": "low",
+            "file": "olca-ecospold-1/src/main/java/org/openlca/ecospold/internal/impact/ImpactFactors.java",
+            "line": 32,
+            "cwe": "CWE-319",
+            "snippet": "*     &lt;restriction base=\"{http://www.w3.org/2001/XMLSchema}anyType\">"
+          },
+          {
+            "severity": "low",
+            "file": "olca-ecospold-1/src/main/java/org/openlca/ecospold/internal/impact/ImpactGeography.java",
+            "line": 24,
+            "cwe": "CWE-319",
+            "snippet": "*     &lt;restriction base=\"{http://www.w3.org/2001/XMLSchema}anyType\">"
+          },
+          {
+            "severity": "low",
+            "file": "olca-ecospold-1/src/main/java/org/openlca/ecospold/internal/impact/ImpactLanguageCode.java",
+            "line": 20,
+            "cwe": "CWE-319",
+            "snippet": "*   &lt;restriction base=\"{http://www.w3.org/2001/XMLSchema}string\">"
+          },
+          {
+            "severity": "low",
+            "file": "olca-ecospold-1/src/main/java/org/openlca/ecospold/internal/impact/ImpactMetaInformation.java",
+            "line": 34,
+            "cwe": "CWE-319",
+            "snippet": "*     &lt;restriction base=\"{http://www.w3.org/2001/XMLSchema}anyType\">"
+          },
+          {
+            "severity": "low",
+            "file": "olca-ecospold-1/src/main/java/org/openlca/ecospold/internal/impact/ImpactModellingAndValidation.java",
+            "line": 33,
+            "cwe": "CWE-319",
+            "snippet": "*     &lt;restriction base=\"{http://www.w3.org/2001/XMLSchema}anyType\">"
+          }
+        ]
+      },
+      "A09-LoggingMonitoringFailures": {
+        "count": 0,
+        "findings": []
+      },
+      "A10-SSRF": {
+        "count": 0,
+        "findings": []
+      }
+    }
+  },
+  "owasp_llm_top10": {
+    "total_findings": 5,
+    "files_with_findings": 5,
+    "severity": {
+      "high": 1,
+      "medium": 4,
+      "low": 0
+    },
+    "categories": {
+      "LLM01-PromptInjection": {
+        "count": 4,
+        "findings": [
+          {
+            "severity": "medium",
+            "file": "olca-formula/src/scripts/func1_templ.py",
+            "line": 24,
+            "cwe": "CWE-1336",
+            "snippet": "template = Template(func_templ_str)"
+          },
+          {
+            "severity": "medium",
+            "file": "olca-formula/src/scripts/func2_templ.py",
+            "line": 24,
+            "cwe": "CWE-1336",
+            "snippet": "template = Template(func_templ_str)"
+          },
+          {
+            "severity": "medium",
+            "file": "olca-formula/src/scripts/funcN_templ.py",
+            "line": 29,
+            "cwe": "CWE-1336",
+            "snippet": "template = Template(func_templ_str)"
+          },
+          {
+            "severity": "medium",
+            "file": "olca-formula/src/scripts/test_spec.py",
+            "line": 3,
+            "cwe": "CWE-1336",
+            "snippet": "a_t = Template(\"\"\"assertEquals(${result}, interpreter.eval(\"${formula}\"), 1e-15);\"\"\")"
+          }
+        ]
+      },
+      "LLM02-SensitiveInfoDisclosure": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM03-SupplyChain": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM04-DataPoisoning": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM05-ImproperOutputHandling": {
+        "count": 1,
+        "findings": [
+          {
+            "severity": "high",
+            "file": "olca-ilcd/src/main/java/org/openlca/ilcd/io/SodaClient.java",
+            "line": 70,
+            "cwe": "CWE-95",
+            "snippet": "eval(response);"
+          }
+        ]
+      },
+      "LLM06-ExcessiveAgency": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM07-SystemPromptLeak": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM08-VectorEmbeddingWeaknesses": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM09-Misinformation": {
+        "count": 0,
+        "findings": []
+      },
+      "LLM10-UnboundedConsumption": {
+        "count": 0,
+        "findings": []
+      }
+    }
+  },
+  "sbom": {
+    "bomFormat": "CycloneDX",
+    "specVersion": "1.5",
+    "serialNumber": "urn:uuid:515e9224-6d9d-5d3f-a35c-79fb8ba6f7cc",
+    "version": 1,
+    "metadata": {
+      "timestamp": "2026-10-05T15:12:00Z",
+      "component": {
+        "type": "application",
+        "name": "OLCA_MODULES",
+        "version": "0ee0cd45a0a3",
+        "bom-ref": "pkg:generic/anticloud/OLCA_MODULES@0ee0cd45a0a3",
+        "purl": "pkg:generic/anticloud/OLCA_MODULES@0ee0cd45a0a3",
+        "licenses": [
+          {
+            "license": {
+              "id": "AGPL-3.0"
+            }
+          }
+        ]
+      },
+      "properties": [
+        {
+          "name": "anticloud:source-commit",
+          "value": "0ee0cd45a0a344d8d478e74582a2d77a729db064"
+        },
+        {
+          "name": "anticloud:source-url",
+          "value": "https://github.com/openLCA/olca-modules"
+        },
+        {
+          "name": "anticloud:tier",
+          "value": "tier-agent"
+        }
+      ]
+    },
+    "components": []
+  },
+  "elapsed_seconds": 655.76
+}
